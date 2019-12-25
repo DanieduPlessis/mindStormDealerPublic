@@ -1,0 +1,38 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom",
+          "uri": "agt-mindstormCardDealer-skill"
+        },
+        "interfaces": [
+          {
+            "type": "CUSTOM_INTERFACE"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "MindStormCardDealer",
+          "summary": "Mindstorm Card Dealer",
+          "description": "Mindstorm and Alexa competition entry",
+          "examplePhrases": [
+            "Alexa, open card dealer"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Alexa, open card dealer",
+      "category": "NOVELTY",
+      "distributionCountries": [
+        "US",
+        "GB",
+        "DE"
+      ]
+    }
+  }
+}

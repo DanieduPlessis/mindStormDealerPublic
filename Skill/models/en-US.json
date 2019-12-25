@@ -1,0 +1,230 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "mindstorm dealer",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": [
+                        "yes",
+                        "yes please",
+                        "sure"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": [
+                        "no",
+                        "no thanks"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "pickupFiftyTwoIntent",
+                    "samples": [
+                        "lets play pick up fifty two",
+                        "pick up fifty two"
+                    ]
+                },
+                {
+                    "name": "dealAgainIntent",
+                    "samples": [
+                        "to deal again"
+                    ]
+                },
+                {
+                    "name": "playerCardIntent",
+                    "slots": [
+                        {
+                            "name": "playerCount",
+                            "type": "AMAZON.NUMBER",
+                            "samples": []
+                        },
+                        {
+                            "name": "playerCardCount",
+                            "type": "AMAZON.NUMBER",
+                            "samples": []
+                        }
+                    ],
+                    "samples": [
+                        "to give player {playerCount} {playerCardCount} cards",
+                        "to give player {playerCount} {playerCardCount} more cards",
+                        "to deal {playerCardCount} cards for player {playerCount}",
+                        "to deal {playerCardCount} card for player {playerCount}"
+                    ]
+                },
+                {
+                    "name": "cardDealIntent",
+                    "slots": [
+                        {
+                            "name": "count",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "We are {count}"
+                            ]
+                        },
+                        {
+                            "name": "cardCount",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "give us {cardCount} per player",
+                                "{cardCount} each please"
+                            ]
+                        },
+                        {
+                            "name": "gameType",
+                            "type": "cardGames",
+                            "samples": [
+                                "{gameType}",
+                                "we are playing {gameType}",
+                                "we are playing {gameType} today",
+                                "lets play {gameType}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "to give {count} players {cardCount} cards each",
+                        "we are {count}",
+                        "we are {count} players",
+                        "there are {count} players",
+                        "give us {cardCount} cards each",
+                        "give us {cardCount} per player",
+                        "{cardCount} cards each",
+                        "{gameType}",
+                        "we are playing {gameType}",
+                        "we are playing {gameType} today",
+                        "lets play {gameType}",
+                        "we are {count} playing {gameType}",
+                        "we are {count} players needing {cardCount} cards each"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "cardGames",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "custom hand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "snap"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "go fish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rummy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bridge"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "poker",
+                                "synonyms": [
+                                    "texas hold 'em"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "cardDealIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "count",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.977597136820.187705785239"
+                            }
+                        },
+                        {
+                            "name": "cardCount",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.688979006741.289794441518"
+                            }
+                        },
+                        {
+                            "name": "gameType",
+                            "type": "cardGames",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.688979006741.14022793470"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.977597136820.187705785239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many players are we today?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.688979006741.289794441518",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many cards per player?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.688979006741.14022793470",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What game are we playing today?"
+                    }
+                ]
+            }
+        ]
+    }
+}
